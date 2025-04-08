@@ -246,7 +246,7 @@
         });
 
         $('#filterPermutations').on('input', function () {
-            const filterText = $(this).val().toLowerCase();
+            const filterText = String($(this).val()).toLowerCase();
             let highlightedCount = 0;
 
             // Remove any previous highlighting
