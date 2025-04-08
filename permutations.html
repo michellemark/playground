@@ -257,7 +257,7 @@
             });
 
             $('.permutation-item').each(function () {
-                const permText = $(this).data('value').toLowerCase();
+                const permText = String($(this).data('value')).toLowerCase();
                 const permSpan = $(this).find('.perm-text');
 
                 // Check if permutation contains filter sequence
@@ -299,6 +299,9 @@
         // Copy all button
         $('#copyAllBtn').on('click', function () {
             const allValues = [];
+            $('.permutation-item').each(function () {
+                allValues.push($(this).data('value'));
+            });
 
             if (allValues.length > 0) {
                 copyToClipboard(allValues.join('\n'));
